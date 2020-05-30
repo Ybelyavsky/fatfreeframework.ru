@@ -9,11 +9,6 @@ description: Документация на русском языке
 [Фабрика коробок «Ронбел»](https://ronbel.ru)  
 [Рекламное агенство OUTADV](http://outadv.pl)
 
-[Оригинал документации](https://fatfreeframework.com)  
-[Composer](https://packagist.org/packages/bcosca/fatfree)  
-[GitHub](https://github.com/bcosca/fatfree) и лог [последний правок](https://github.com/bcosca/fatfree-core/blob/master/CHANGELOG.md)  
-[F3 Google Group](https://groups.google.com/forum/#!forum/f3-framework) and [Slack](https://fatfreeframework-slack.herokuapp.com/)
-
 ### Создавайте Мощные Приложения
 
 Воспользуйтесь преимуществами встроенных функций. Разрабатывайте приложения, которые действительно вдохновляют. F3 дает вам прочную основу, зрелую кодовую базу и простой подход к написанию веб-приложений.
@@ -23,6 +18,11 @@ description: Документация на русском языке
 Ускорьте процесс разработки. F3-это легкий, простой в использовании и быстрый фреймворк. Но самое главное-он не стоит у вас на пути. Он имеет сглаженную кривую обучения, поэтому вы экономите время на обучение.
 
 ### Быстрый старт
+
+[Оригинал документации](https://fatfreeframework.com)  
+[Composer](https://packagist.org/packages/bcosca/fatfree)  
+[GitHub](https://github.com/bcosca/fatfree) и лог [последний правок](https://github.com/bcosca/fatfree-core/blob/master/CHANGELOG.md)  
+[F3 Google Group](https://groups.google.com/forum/#!forum/f3-framework) and [Slack](https://fatfreeframework-slack.herokuapp.com/)
 
 Независимо от того, являетесь ли вы новичком или опытным программистом PHP, F3 поможет вам быстро начать работу. Никаких ненужных и кропотливых процедур установки. Никакой сложной конфигурации не требуется. Никаких запутанных структур каталогов.
 
