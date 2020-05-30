@@ -9,7 +9,9 @@ description: Документация на русском языке
 [Фабрика коробок «Ронбел»](https://ronbel.ru)  
 [Рекламное агенство OUTADV](http://outadv.pl)
 
-[Оригинал документации](https://fatfreeframework.com)
+[Оригинал документации](https://fatfreeframework.com)  
+[Composer](https://packagist.org/packages/bcosca/fatfree)  
+[GitHub](https://github.com/bcosca/fatfree) 
 
 ### Создавайте Мощные Приложения
 
