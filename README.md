@@ -11,7 +11,7 @@ description: Документация на русском языке
 
 [Оригинал документации](https://fatfreeframework.com)  
 [Composer](https://packagist.org/packages/bcosca/fatfree)  
-[GitHub](https://github.com/bcosca/fatfree)   
+[GitHub](https://github.com/bcosca/fatfree) и лог [последний правок](https://github.com/bcosca/fatfree-core/blob/master/CHANGELOG.md)  
 [F3 Google Group](https://groups.google.com/forum/#!forum/f3-framework) and [Slack](https://fatfreeframework-slack.herokuapp.com/)
 
 ### Создавайте Мощные Приложения
