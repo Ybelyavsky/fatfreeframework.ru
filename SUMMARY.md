@@ -2,7 +2,7 @@
 
 * [Fat-Free Framework](README.md)
 
-## Инструкция
+## Учебник <a id="user-guide"></a>
 
-* [Старт](instrukciya/start.md)
+* [Приступая к работе](user-guide/start.md)
 
