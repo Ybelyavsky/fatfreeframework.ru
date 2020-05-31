@@ -4,7 +4,7 @@ description: Документация на русском языке
 
 # Fat-Free Framework
 
-### Спонсоры
+### Спонсоры перевода
 
 [Фабрика коробок «Ронбел»](https://ronbel.ru)  
 [Рекламное агенство OUTADV](http://outadv.pl)
