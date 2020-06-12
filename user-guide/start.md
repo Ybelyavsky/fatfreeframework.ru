@@ -32,7 +32,7 @@ Zend Engine v2.6.0, Copyright © 1998-2016 Zend Technologies
     with Zend OPcache v7.0.6-dev, Copyright © 1999-2016, by Zend Technologies
 ```
 
-### Привет, Мир: Менее Чем За Минуту Обезжиренный Рецепт 
+### Привет, Мир: Менее чем за минуту Fat-Free рецепт 
 
 Пора начинать писать наше первое приложение:
 
