@@ -5,4 +5,5 @@
 ## Учебник <a id="user-guide"></a>
 
 * [Приступая к работе](user-guide/start.md)
+* [Маршрутизация](user-guide/marshrutizaciya.md)
 
