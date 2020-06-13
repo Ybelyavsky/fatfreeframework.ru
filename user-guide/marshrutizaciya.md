@@ -28,7 +28,7 @@ HTTP-запросы также могут быть перенаправлены 
 $f3->route('GET /login','Controller\Auth::login');
 ```
 
-> Застрял с ошибкой 404 не найден? Проверьте конфигурацию вашего сервера.
+> Застрял с ошибкой 404? Проверьте конфигурацию [вашего сервера](https://fatfreeframework.com/3.7/routing-engine#sample-apache-configuration).
 
 ### Маршруты и токены 
 
