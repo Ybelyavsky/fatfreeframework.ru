@@ -6,7 +6,7 @@ description: Документация на русском языке
 
 ### Спонсоры перевода
 
-[Фабрика коробок «Ронбел»](https://ronbel.ru)  
+[Фабрика коробок ](https://ronbel.ru)[«](https://ronbel.ru)[РОНБЕЛ](https://ronbel.ru)[»](https://ronbel.ru)  
 [Рекламное агенство OUTADV](http://outadv.pl)
 
 ### Создавайте Мощные Приложения
