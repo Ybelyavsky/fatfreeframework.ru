@@ -355,8 +355,6 @@ $f3->route('GET /products/@action','Products->@action');
 
 Динамические обработчики маршрутов могут иметь различные формы:
 
-
-
 ```text
 // статический метод
 $f3->route('GET /public/@genre','Main::@genre');
