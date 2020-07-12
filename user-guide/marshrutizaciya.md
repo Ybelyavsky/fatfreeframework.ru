@@ -135,33 +135,92 @@ $f3->reroute('@beer_village_list(@country=Germany,@village=Rhine)');
 **Встроенный веб-сервер PHP 5.4**   
 Последняя стабильная версия PHP имеет свой собственный встроенный веб-сервер. Запустите его, используя следующую конфигурацию:
 
-PHP-S localhost:80-t /var / www/ Приведенная выше команда начнет маршрутизацию всех запросов в web root /var / www. Если поступит входящий HTTP-запрос на файл или папку, PHP будет искать его в корне веб-сайта и отправлять в браузер, если он будет найден. В противном случае PHP загрузит индекс по умолчанию.php \(содержащий ваш код с поддержкой F3\).
+```text
+php -S localhost:80 -t /var/www/
+```
+
+Приведенная выше команда начнет маршрутизацию всех запросов в web root `/var/www`. Если поступит входящий HTTP-запрос на файл или папку, PHP будет искать его в корне веб-сайта и отправлять в браузер, если он будет найден. В противном случае PHP загрузит индекс по `index.php` \(содержащий ваш код с поддержкой F3\).
 
 **Пример Конфигурации Apache**   
 Если вы используете Apache, убедитесь, что вы активировали модуль перезаписи URL-адресов \(mod\_rewrite\) в вашем apache.conf \(или httpd.conf\) файл. Вы также должны создать a .файл htaccess, содержащий следующее:
 
+```text
 RewriteEngine On
 
-RewriteRule ^\(app\|dict\|ns\|tmp\)\|/.ini$ - \[R=404\]
+RewriteRule ^(app|dict|ns|tmp)\/|\.ini$ - [R=404]
 
-RewriteCond %{REQUEST\_FILENAME} !-л RewriteCond %{REQUEST\_FILENAME} !-Ф RewriteCond %{REQUEST\_FILENAME} !-д Переписывай все заново . _индекс.php \[L, QSA\] Переписывай все заново ._ - \[E=HTTP\_AUTHORIZATION:%{HTTP:Authorization}, L\] Скрипт сообщает Apache, что всякий раз, когда приходит HTTP-запрос и если нет физического файла \(!-f\) или путь \(!- г\) или символическая ссылка \(!-л\) можно найти, он должен передать управление индексу.php, который содержит наш главный / передний контроллер, и который, в свою очередь, вызывает фреймворк.
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .* index.php [L,QSA]
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
+```
 
-То.файл htaccess, содержащий указанные выше директивы Apache, всегда должен находиться в той же папке, что и index.РНР.
+Скрипт сообщает Apache, что всякий раз, когда приходит HTTP-запрос и если нет физического файла \(`!-f`\) или путь \(`!-d`\) или символическая ссылка \(`!-l`\) можно найти, он должен передать управление `index.php`, который содержит наш главный / передний контроллер, и который, в свою очередь, вызывает фреймворк.
 
-Вам также нужно настроить Apache, чтобы он знал физическое местоположение индекса.php на вашем жестком диске. Типичная конфигурация-это:
+То.файл `.htaccess`, содержащий указанные выше директивы Apache, всегда должен находиться в той же папке, что и `index.php`.
 
-DocumentRoot "/var / www / html" &lt;Каталог "/var/www / html"&gt; Опции-Индексы + FollowSymLinks +Включает В Себя AllowOverride Все Приказ разрешить, запретить Разрешить от всех &lt;/Справочник&gt; В случае, если вы просто помещаете свой обезжиренный проект в подпапку существующего корневого документа, некоторые конфигурации Apache, возможно, также нуждаются в определенной базе перезаписи .файл htaccess. Если приложение не работает или маршрут по умолчанию / работает, но /test, возможно, не работает, попробуйте добавить базовый путь:
+Вам также нужно настроить Apache, чтобы он знал физическое местоположение `index.php` на вашем жестком диске. Типичная конфигурация-это:
 
-RewriteEngine On RewriteBase /fatfree-проект/ Если вы разрабатываете несколько приложений одновременно, управлять конфигурацией виртуального хоста будет проще:
+```text
+DocumentRoot "/var/www/html"
+<Directory "/var/www/html">
+    Options -Indexes +FollowSymLinks +Includes
+    AllowOverride All
+    Order allow,deny
+    Allow from All
+</Directory>
+```
 
-NameVirtualHost  _&lt; VirtualHost_ &gt; Имя_сервера site1.com DocumentRoot "/var / www / site1" &lt;Каталог "/var/www / site1"&gt; Опции-Индексы + FollowSymLinks +Включает В Себя AllowOverride Все Приказ разрешить, запретить Разрешить от всех &lt;/Справочник&gt; &lt; / VirtualHost&gt; &lt; VirtualHost \*&gt; Имя_сервера site2.com DocumentRoot "/var / www / site2" &lt;Каталог "/var/www / site2"&gt; Опции-Индексы + FollowSymLinks +Включает В Себя AllowOverride Все Приказ разрешить, запретить Разрешить от всех &lt;/Справочник&gt; &lt; / VirtualHost&gt; Каждое имя сервера \(site1.com и еще site2.com в нашем примере\) должен быть указан в вашем файле /etc/hosts. В Windows вы должны отредактировать C:/WINDOWS/system32/drivers/etc/hosts-да. Для осуществления изменений может потребоваться перезагрузка компьютера. Затем вы можете направить свой веб-браузер по указанному адресу [http://site1.com](http://site1.com) или [http://site2.com](http://site2.com) виртуальные хосты значительно облегчают развертывание ваших приложений.
+Приказ разрешить, запретить Разрешить от всех &lt;/Справочник&gt; В случае, если вы просто помещаете свой обезжиренный проект в подпапку существующего корневого документа, некоторые конфигурации Apache, возможно, также нуждаются в определенной `RewriteBase` перезаписи .файл `.htaccess`. Если приложение не работает или маршрут по умолчанию `/` работает, но `/test`, возможно, не работает, попробуйте добавить базовый путь:
+
+```text
+RewriteEngine On
+RewriteBase /fatfree-project/
+```
+
+Если вы разрабатываете несколько приложений одновременно, управлять конфигурацией виртуального хоста будет проще:
+
+```text
+NameVirtualHost *
+<VirtualHost *>
+    ServerName site1.com
+    DocumentRoot "/var/www/site1"
+    <Directory "/var/www/site1">
+        Options -Indexes +FollowSymLinks +Includes
+        AllowOverride All
+        Order allow,deny
+        Allow from All
+    </Directory>
+</VirtualHost>
+<VirtualHost *>
+    ServerName site2.com
+    DocumentRoot "/var/www/site2"
+    <Directory "/var/www/site2">
+        Options -Indexes +FollowSymLinks +Includes
+        AllowOverride All
+        Order allow,deny
+        Allow from All
+    </Directory>
+</VirtualHost>
+```
+
+Каждое `ServerName` \(`site1.com` и еще `site2.com` в нашем примере\) должен быть указан в вашем файле `/etc/hosts`. В Windows вы должны отредактировать `C:/WINDOWS/system32/drivers/etc/hosts` -да. Для осуществления изменений может потребоваться перезагрузка компьютера. Затем вы можете направить свой веб-браузер по указанному адресу `http://site1.com` или `http://site2.com` виртуальные хосты значительно облегчают развертывание ваших приложений.
 
 **Альтернативная конфигурация Apache**   
-Если mod\_rewrite недоступен на вашем сервере или вы хотите немного повысить производительность, вы можете воспользоваться директивой FallbackResource, доступной в Apache 2.4 и выше.
+Если `mod_rewrite` недоступен на вашем сервере или вы хотите немного повысить производительность, вы можете воспользоваться директивой [FallbackResource](https://httpd.apache.org/docs/2.4/mod/mod_dir.html#fallbackresource), доступной в Apache 2.4 и выше.
 
-В таком случае просто добавьте следующую строку в свой список .файл htaccess или в вашей конфигурации VirtualHost:
+В таком случае просто добавьте следующую строку в свой список .файл `.htaccess` или в вашей конфигурации VirtualHost:
 
-FallbackResource /индекс.РНР Если ваше веб-приложение работает в подпапке корневого сервера, не забудьте соответствующим образом изменить директиву:
+```text
+FallbackResource /index.php
+```
 
-FallbackResource /fatfree-проект/Индекс.РНР Обратите внимание: в настоящее время существует ошибка, которая пропускает директиву, когда запрошенный URI заканчивается.php и находится в корне приложения: [http://localhost/fatfree-project/foo-да.php](http://localhost/fatfree-project/foo-да.php) = &gt; ошибка 404 [http://localhost/fatfree-project/foo/bar-да.php](http://localhost/fatfree-project/foo/bar-да.php) = &gt; OK Пример Конфигурации Nginx
+Если ваше веб-приложение работает в подпапке корневого сервера, не забудьте соответствующим образом изменить директиву:
+
+```text
+FallbackResource /fatfree-project/index.php
+```
+
+Обратите внимание: в настоящее время существует ошибка, которая пропускает директиву, когда запрошенный URI заканчивается.php и находится в корне приложения: [http://localhost/fatfree-project/foo-да.php](http://localhost/fatfree-project/foo-да.php) = &gt; ошибка 404 [http://localhost/fatfree-project/foo/bar-да.php](http://localhost/fatfree-project/foo/bar-да.php) = &gt; OK Пример Конфигурации Nginx
 
