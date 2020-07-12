@@ -497,7 +497,17 @@ php index.php /my-awesome-route?foo=bar
 
 аргументы, разделенные пробелами, сопоставляются компонентам пути параметры short-form \(aka flags\) и long-form сопоставляются со строковыми аргументами запроса варианты короткой формы могут быть объединены параметры могут передаваться в любом порядке \(до, Между или после аргументов\) Вот несколько примеров:
 
-индекс php.тест карты PHP, чтобы получить /проверить индекс php.в PHP лог показать ... лимит=50 --полный карт Скачать /отчет/показать?предел=50 и полный= индекс php.php cache clear-f-v-i-n=23 maps to GET /cache/clear?f= & v= & i=&n=23 все нижеперечисленное эквивалентно предыдущему запросу: индекс php.PHP cache clear -fvi-n=23 индекс php.PHP cache clear -fvin=23 индекс php.PHP cache -fvin=23 clear индекс php.php-fvin=23 кэш очищен индекс php.php-fvi cache clear-n=23 Параметры CLI доступны через глобальную переменную $\_GET.
+* `php index.php test` соответствует `GET /test`
+* `php index.php log show --limit=50 --full` соответствует `GET /log/show?limit=50&full=`
+* `php index.php cache clear -f -v -i -n=23` соответствует `GET /cache/clear?f=&v=&i=&n=23`
+* все ниже перечисленное эквивалентно предыдущему запросу: 
+  * `php index.php cache clear -fvi -n=23`
+  * `php index.php cache clear -fvin=23`
+  * `php index.php cache -fvin=23 clear`
+  * `php index.php -fvin=23 cache clear`
+  * `php index.php -fvi cache clear -n=23`
+
+Параметры CLI доступны через глобальную переменную `$_GET`.
 
 Вот два слегка отличающихся подхода к вариантам обработки:
 
