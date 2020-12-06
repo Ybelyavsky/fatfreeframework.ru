@@ -8,7 +8,7 @@
 
 F3 позволяет вам легко отлаживать программы-не мешая вашим обычным мыслительным процессам. Фреймворк не требует от вас создания сложных классов ООП, тяжелых тестовых структур и навязчивых процедур.
 
-Блок \(или тестовое приспособление\) может быть функцией/методом или классом. Давайте рассмотрим простой пример:
+Unit/блок \(или тестовое приспособление\) может быть функцией/методом или классом. Давайте рассмотрим простой пример:
 
 ```text
 function hello() {
@@ -21,36 +21,36 @@ function hello() {
 ```text
 $f3=require(__DIR__.'/lib/base.php'); // path to f3
 
-// Set up
+// Установка
 $test=new Test;
 include('hello.php');
 
-// This is where the tests begin
+// Здесь начинаются тесты
 $test->expect(
     is_callable('hello'),
     'hello() is a function'
 );
 
-// Another test
+// Другой текст
 $hello=hello();
 $test->expect(
     !empty($hello),
     'Something was returned'
 );
 
-// This test should succeed
+// Этот тест должен быть успешным
 $test->expect(
     is_string($hello),
     'Return value is a string'
 );
 
-// This test is bound to fail
+// Этот тест обречен на провал
 $test->expect(
     strlen($hello)==13,
     'String length is 13'
 );
 
-// Display the results; not MVC but let's keep it simple
+// Отображение результатов; не MVC, но давайте сделаем это просто
 foreach ($test->results() as $result) {
     echo $result['text'].'<br>';
     if ($result['status'])
@@ -62,8 +62,6 @@ foreach ($test->results() as $result) {
 ```
 
 Сохраните его в файле под названием `test.php`. Таким образом, мы можем сохранить целостность `hello.php`.
-
-Теперь вот мясо нашего процесса модульного тестирования.
 
 Для каждого теста, который вы хотите запустить, вызовите `expect()` метод проведения `Test` класс. `expect()` имеет 2 аргумента:
 
@@ -89,12 +87,12 @@ F3 дает вам возможность имитировать HTTP-запро
 Вот простой макет запроса:
 
 ```text
-$f3->set('QUIET',TRUE);  // do not show output of the active route
-$f3->mock('GET /test');  // set the route that f3 will run
-// run tests using expect() as shown above
+$f3->set('QUIET',TRUE);  // не показывать вывод активного маршрута
+$f3->mock('GET /test');  // установите маршрут, по которому будет работать f3
+// запустите тесты с помощью expect (), как показано выше
 // ...
-$f3->set('QUIET',FALSE); // allow test results to be shown later
-$f3->clear('ERROR');  // clear any errors
+$f3->set('QUIET',FALSE); // привести результаты тестирования будут показаны позже
+$f3->clear('ERROR');     // очистить все ошибки
 ```
 
 `Tip:` Если у вас есть маршрут, определенный с параметрами токена, например /test / @name, вы можете проверить этот маршрут, установив значение для токена в команде mock, и получить доступ к этому значению во время тестирования из массива params assoc F3
@@ -111,7 +109,7 @@ $test->expect(
 Чтобы имитировать запрос POST и отправить имитированную HTML форму:
 
 ```text
-$f3->mock('POST /test', array('foo'=>'bar')); // pass in form values using assoc array
+$f3->mock('POST /test', array('foo'=>'bar')); // передача значений формы с помощью массива assoc
 ```
 
 `Tip:` При использовании макета, отображении результатов тестирования с помощью визуализированного шаблона или тестировании чего-либо в вашей базе данных вам необходимо включить настройки конфигурации для F3, чтобы он знал расположение ваших шаблонов, параметров БД и т. д.
