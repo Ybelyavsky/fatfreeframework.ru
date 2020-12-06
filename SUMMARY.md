@@ -7,4 +7,5 @@
 * [Приступая к работе](user-guide/start.md)
 * [Маршрутизация](user-guide/marshrutizaciya.md)
 * [Переменные](user-guide/peremennye.md)
+* [Тестирование](user-guide/testirovanie.md)
 
