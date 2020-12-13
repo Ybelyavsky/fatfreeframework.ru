@@ -14,3 +14,7 @@
 * [Тестирование](user-guide/testirovanie.md)
 * [Краткий справочник](user-guide/kratkii-spravochnik.md)
 
+---
+
+* [API](api.md)
+
