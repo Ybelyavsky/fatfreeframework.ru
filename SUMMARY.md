@@ -14,7 +14,10 @@
 * [Тестирование](user-guide/testirovanie.md)
 * [Краткий справочник](user-guide/kratkii-spravochnik.md)
 
----
+## API <a id="api-1"></a>
 
-* [API](api.md)
+* [База](api-1/baza.md)
+* [Кэш](api-1/kesh.md)
+* [Вид](api-1/vid.md)
+* [Предварительный просмотр](api-1/predvaritelnyi-prosmotr.md)
 
