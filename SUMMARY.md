@@ -12,4 +12,5 @@
 * [Плагины](user-guide/plaginy.md)
 * [Оптимизация](user-guide/optimizaciya.md)
 * [Тестирование](user-guide/testirovanie.md)
+* [Краткий справочник](user-guide/kratkii-spravochnik.md)
 
