@@ -2,7 +2,7 @@
 
 
 
-### основное использование <a id="basic-use"></a>
+### Основное использование <a id="basic-use"></a>
 
 Переменные, определенные в Fat-Free, являются глобальными, то есть они могут быть доступны любому компоненту. Глобалы фреймворка не идентичны глобалам PHP. Переменная F3 с именем `content`не идентична PHP `$content`. F3 сам по себе является доменным языком и поддерживает свою собственную отдельную таблицу символов для системных и прикладных переменных. Фреймворк, как и любая хорошо разработанная объектно-ориентированная программа, не загрязняет глобальное пространство имен PHP константами, переменными, функциями или классами, которые могут конфликтовать с любым приложением. В отличие от других фреймворков, F3 не использует PHP `define()` заявление. Все константы фреймворка ограничены классами.
 
@@ -61,11 +61,11 @@ The framework has several variables to help you keep your files and directory st
 
 Refer to the [Quick Reference](https://z5h64q92x9.net/proxy_u/en-ru.ru/https/fatfreeframework.com/3.7/quick-reference) for a comprehensive list of built-in framework variables.
 
-### Naming Rules <a id="naming-rules"></a>
+### Правила Именования <a id="naming-rules"></a>
 
-A framework variable may contain any number of letters, digits and underscores. It must start with an alpha character and should have no spaces. Variable names are case-sensitive.
+Переменная фреймворка может содержать любое количество букв, цифр и символов подчеркивания. Он должен начинаться с Альфа-символа и не должен содержать пробелов. Имена переменных чувствительны к регистру.
 
-F3 uses all-caps for internal predefined global variables. Nothing stops you from using variable names consisting of all-caps in your own program, but as a general rule, stick to lowercase \(or camelCase\) when you set up your own variables so you can avoid any possible conflict with current and future framework releases.
+F3 использует все заглавные буквы для внутренних предопределенных глобальных переменных. Ничто не мешает вам использовать имена переменных, состоящие из всех заглавных букв в вашей собственной программе, но, как правило, придерживайтесь нижнего регистра \(или camelCase\) при настройке собственных переменных, чтобы избежать любого возможного конфликта с текущими и будущими выпусками фреймворка.
 
 Вы не должны использовать зарезервированные PHP слова, такие как`if`, `for`, `class`, и т.д.`default` как имена переменных фреймворка. Это может привести к непредсказуемым результатам.
 
@@ -191,22 +191,22 @@ $f3->set('DEBUG',0);
 $f3->error(401, "The information necessary to grant access is missing from the request.");
 ```
 
-### Configuration Files <a id="configuration-files"></a>
+### конфигурационный файл <a id="configuration-files"></a>
 
-If your application needs to be user-configurable, F3 provides a handy method for reading configuration files to set up your application. This way, you and your users can tweak the application without altering any PHP code.
+Если ваше приложение должно быть настроено пользователем, F3 предоставляет удобный метод чтения конфигурационных файлов для настройки вашего приложения. Таким образом, вы и ваши пользователи можете настроить приложение, не изменяя никакого PHP-кода.
 
-There are 4 predefined section names:
+Существует 4 предопределенных названия разделов:
 
-* `[globals]` for global variables definitions
-* `[routes]` for routes definitions
-* `[maps]` for route maps definitions
-* `[redirects]` for redirecting routes
+* `[globals]` для определения глобальных переменных
+* `[routes]` для определения маршрутов
+* `[maps]` для определения карт маршрутов
+* `[redirects]` для перенаправления маршрутов
 
-**NB**: `[globals]` is assumed if no section has been provided. You can combine all sections in a single configuration file - although having `[routes]`, `[maps]`, and `[redirects]` in a separate file is recommended. This way you can allow end-users to modify some application-specific flags, and at the same time restrict them from meddling with your routing logic.
+**NB**: `[globals]`предполагается, если раздел не был предоставлен. Вы можете объединить все разделы в один конфигурационный файл-хотя наличие `[routes]`, `[maps]`, и `[redirects]`в отдельном файле рекомендуется. Таким образом, вы можете разрешить конечным пользователям изменять некоторые флаги конкретных приложений и в то же время запретить им вмешиваться в вашу логику маршрутизации.
 
-Here's how to use the different sections:.
+Вот как использовать различные разделы:.
 
-#### \[globals\] <a id="globals"></a>
+#### \[глобальный\] <a id="globals"></a>
 
 Вместо того чтобы создавать PHP скрипт содержащий следующий пример кода:
 
