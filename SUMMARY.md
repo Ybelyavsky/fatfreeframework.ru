@@ -4,6 +4,7 @@
 
 ## Учебник <a id="user-guide"></a>
 
+* [Сообщество](user-guide/soobshestvo.md)
 * [Приступая к работе](user-guide/start.md)
 * [Маршрутизация](user-guide/marshrutizaciya.md)
 * [Переменные](user-guide/peremennye.md)
