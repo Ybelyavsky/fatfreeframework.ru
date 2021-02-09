@@ -2,7 +2,7 @@
 
 \*\*\*\*
 
-[Поддержи проект!](https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js)
+[Поддержи проект!](https://www.buymeacoffee.com/belyavsky)
 
 \*\*\*\*[**Хабр Q&A**](https://qna.habr.com/tag/fat-free-framework/questions) **RU**  
 [**STACK OVERFLOW**](https://stackoverflow.com/tags/fat-free-framework) **EN**  
