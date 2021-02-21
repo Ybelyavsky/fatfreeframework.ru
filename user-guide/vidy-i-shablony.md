@@ -31,7 +31,7 @@ $f3->route('GET /',
         $f3->set('name','world');
         $view=new View;
         echo $view->render('template.htm');
-        // Previous two lines can be shortened to:
+        // Предыдущие две строки можно сократить до:
         // echo View::instance()->render('template.htm');
     }
 );
