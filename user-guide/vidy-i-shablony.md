@@ -170,16 +170,16 @@ $f3->set('content','wiki.htm');
 <include if="{{ count(@items) >= 2 }}" href="items.htm" />
 ```
 
-Текущий улей данных передается в подшаблон. Однако вы можете передавать новые переменные или перезаписывать существующие переменные с помощью `with`атрибута:
+Текущий массив данных передается в подшаблон. Однако вы можете передавать новые переменные или перезаписывать существующие переменные с помощью `with`атрибута:
 
 ```text
-<!-- pass $a=2 to sub.htm -->
+<!-- передайте $a=2 в sub.htm -->
 <include href="sub.htm" with="a=2" />
 
-<!-- pass $b='something' and $c='something quoted' to sub.htm -->
+<!-- передайте $b="что-то" и $c= "что-то в кавычках" sub.htm -->
 <include href="sub.htm" with="b=something,c='something quoted'" />
 
-<!-- pass uppercased value of $d to sub.htm -->
+<!-- передайте значение в верхнем регистре $d в sub.htm -->
 <set d="abc" />
 <include href="sub.htm" with="d={{strtoupper($d)}}" /> // $d='ABC'
 {{@d}} // $d='abc'
@@ -193,7 +193,7 @@ $f3->set('content','wiki.htm');
 
 ```text
 <exclude>
-    <p>A chunk of HTML we don't want displayed at the moment</p>
+    <p>Кусок HTML, который мы не хотим отображать в данный момент</p>
 </exclude>
 ```
 
@@ -202,7 +202,7 @@ $f3->set('content','wiki.htm');
 Вот еще один способ исключения содержимого шаблона или добавления комментариев:
 
 ```text
-{* <p>A chunk of HTML we don't want displayed at the moment</p> *}
+{* <p>Кусок HTML, который мы не хотим отображать в данный момент</p> *}
 ```
 
 ### Условные Сегменты <a id="conditional-segments"></a>
@@ -211,14 +211,14 @@ $f3->set('content','wiki.htm');
 
 ```text
 <check if="{{ @page=='Home' }}">
-    <false><span>Inserted if condition is false</span></false>
+    <false><span>Вставляется, если условие ложно</span></false>
 </check>
 <check if="{{ @gender=='M' }}">
     <true>
-        <div>Appears when condition is true</div>
+        <div>Появляется, когда условие истинно</div>
     </true>
     <false>
-        <div>Appears when condition is false</div>
+        <div>Появляется, когда условие ложно</div>
     </false>
 </check>
 ```
@@ -229,7 +229,7 @@ $f3->set('content','wiki.htm');
 
 ```text
 <check if="{{ @loggedin }}">
-    <p>HTML chunk to be included if condition is true</p>
+    <p>Фрагмент HTML, который будет включен, если условие истинно</p>
 </check>
 ```
 
