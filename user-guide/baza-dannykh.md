@@ -258,7 +258,7 @@ $user->erase();
 
 ```text
 if ($user->dry())
-    echo 'No record matching criteria';
+    echo 'Нет критериев соответствия записей';
 ```
 
 ### За гранью грубости <a id="beyond-crud"></a>
@@ -296,24 +296,24 @@ $f3->get('user')->copyTo('POST');
 ```text
 $user=new DB\SQL\Mapper($db,'users');
 $user->load('visits>3');
-// Rewritten as a parameterized query
+// Переписано как параметризованный запрос
 $user->load(array('visits>?',3));
 
-// For MongoDB users:
+// Для пользователей MongoDB:
 // $user=new DB\Mongo\Mapper($db,'users');
 // $user->load(array('visits'=>array('$gt'=>3)));
 
-// If you prefer Jig:
+// Если вы предпочитаете Jig:
 // $user=new DB\Jig\Mapper($db,'users');
 // $user->load('@visits>?',3);
 
-// Display the userID of the first record that matches the criteria
+// Отобразите идентификатор пользователя первой записи, соответствующей критериям
 echo $user->userID;
-// Go to the next record that matches the same criteria
-$user->skip(); // Same as $user->skip(1);
-// Back to the first record
+// Перейдите к следующей записи, соответствующей тем же критериям
+$user->skip(); // Так же, как $user->skip(1);
+// Вернемся к первой записи
 $user->skip(-1);
-// Move three records forward
+// Переместите три записи вперед
 $user->skip(3);
 ```
 
@@ -352,11 +352,11 @@ $page=$user->paginate(2,5,array('visits>?',3));
 В приведенном выше сценарии F3 будет извлекать записи, соответствующие этим критериям `'visits>3'`. Затем он ограничит результаты 5 записями \(на страницу\), начиная со смещения страницы 2 \(на основе 0\). Фреймворк вернет массив состоящий из следующих элементов:
 
 ```text
-[subset] array of mapper objects that match the criteria
-[total] sum of all records for all pages
-[limit] same value as the size parameter (here 5)
-[count] number of of subsets/pages available
-[pos] actual subset position
+[subset] массив объектов картографа, соответствующих критериям
+[total] сумма всех записей для всех страниц
+[limit] то же значение, что и параметр размера (здесь 5)
+[count] количество доступных подмножеств/страниц
+[pos] фактическая позиция подмножества
 ```
 
 Фактическая возвращаемая позиция подмножества будет равна нулю, если первый аргумент `paginate()`является отрицательным числом или превышает число найденных подмножеств.
@@ -472,7 +472,7 @@ echo $array['city'].', '.$array['country'];
 
 ```text
 if (!$user->count(array('visits>?',10)))
-    echo 'We need a better ad campaign!';
+    echo 'Нам нужна лучшая рекламная кампания!';
 ```
 
 Существует также `select()`метод, который аналогичен`find()`, но обеспечивает более мелкозернистый контроль над возвращаемыми полями. Он имеет SQL-подобный синтаксис:
@@ -509,17 +509,17 @@ F3 отслеживает все команды, выданные базовом
 
 ```text
 class Vendor extends DB\SQL\Mapper {
-	// Instantiate mapper
+	// Создать экземпляр картографа
 	function __construct(DB\SQL $db) {
-		// This is where the mapper and DB structure synchronization occurs
+		// Именно здесь происходит синхронизация картографа и структуры БД
 		parent::__construct($db,'vendors');
 	}
 
-	// Specialized query
+	// Специализированный запрос
 	function listByCity() {
 		return $this->select('vendorID,name,city',null,array('order'=>'city DESC'));
 		/*
-		We could have done the same thing with plain vanilla SQL:
+		Мы могли бы сделать то же самое с обычным ванильным SQL:
 		return $this->db->exec(
 			'SELECT vendorID,name,city FROM vendors '.
 			'ORDER BY city DESC;'
