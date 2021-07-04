@@ -144,10 +144,10 @@ $f3->set('func',
 
 ```text
 <include href="{{ @content }}" />
-// OR
+// ИЛИ
 <include href="{{ 'templates/layout/'.@content }}" />
 
-// WRONG
+// НЕПРАВИЛЬНО
 <include href="templates/layout/{{ @content }}" />
 ```
 
@@ -326,7 +326,7 @@ $f3->set('div',
 ```text
 <script type="text/javascript">
     function notify() {
-        alert('You are logged in as: {{ @userID }}');
+        alert('Вы вошли в систему как: {{ @userID }}');
     }
 </script>
 ```
@@ -337,7 +337,7 @@ $f3->set('div',
 <script type="text/javascript">
 	var discounts=[];
     <repeat group="{{ @rates }}" value="{{ @rate }}">
-        // whatever you want to repeat in Javascript, e.g.
+        // все, что вы хотите повторить в Javascript, например
         discounts.push("{{ @rate }}");
     </repeat>
 </script>
@@ -350,7 +350,7 @@ $f3->set('div',
 ```text
 <link href="ui/css/base.css" type="text/css" rel="stylesheet" />
 <script src="ui/js/base.css"></script>
-<a href="category-abc/article-xyz">read more</a>
+<a href="category-abc/article-xyz">подробнее</a>
 <img src="ui/img/img1.jpg" alt="Image 1" />
 ```
 
@@ -359,7 +359,7 @@ $f3->set('div',
 ```text
 <link href="{{@BASE}}/ui/css/base.css" type="text/css" rel="stylesheet" />
 <script src="{{@BASE}}/ui/js/base.css"></script>
-<a href="{{@BASE}}/category-abc/article-xyz">read more</a>
+<a href="{{@BASE}}/category-abc/article-xyz">подробнее</a>
 <img src="{{@BASE}}/ui/img/img1.jpg" alt="Image 1" />
 ```
 
@@ -400,7 +400,7 @@ From: {{ @from }}
 To: {{ @to }}
 Subject: {{ @subject }}
 
-<p>Welcome, and thanks for joining {{ @site }}!</p>
+<p>Добро пожаловать и спасибо, что присоединились {{ @site }}!</p>
 ```
 
 Сохраните вышеприведенный шаблон электронной почты как приветствие формат txt. Связанный с этим код F3 будет следующим:
@@ -506,7 +506,7 @@ $f3->set('LANGUAGE','de');
 Если основной язык вашего сайта не английский, и вы не перевели все строки на другие языки, вы должны поручить F3 использовать ваш справочник по родному языку в качестве запасного варианта. Вы можете легко сделать это благодаря переменной `FALLBACK`hive:
 
 ```text
-$f3->set('FALLBACK','it');  // Italiano as default fallback language
+$f3->set('FALLBACK','it');  // Итальянский как запасной язык по умолчанию
 ```
 
 **Варианты Языка**
@@ -518,16 +518,16 @@ $f3->set('FALLBACK','it');  // Italiano as default fallback language
 Еще одна вещь: F3 также может загружаться **.**файлы в формате ini-style в виде словарей:
 
 ```text
-love = I love F3
-today = Today is {0,date}
+love = Я люблю F3
+today = Сегодня {0,date}
 pi = {0,number}
-money = Amount remaining: {0,number,currency}
-multiline = It's also possible to have language keys \
-            spread over multiple lines
+money = Оставшаяся сумма: {0,number,currency}
+multiline = Также возможно наличие языковых клавиш \
+            распределено по нескольким линиям
 
 [module.user.validation]
-name.required = Please enter your name.
-mail.invalid = This mail address is not valid.
+name.required = Пожалуйста, введите свое имя.
+mail.invalid = Этот адрес электронной почты недействителен.
 ```
 
 Сохраните его как `dict/en.ini`таковой, чтобы фреймворк мог загружать его автоматически. Языковая переменная принимает тот же тип строки, что и заголовок HTTP Accept-Language, который представляет собой разделенный запятыми список 2-буквенных кодов языков, за которыми необязательно следует **дефис** и 2-буквенный код страны.  
